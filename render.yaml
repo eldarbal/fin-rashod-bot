@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: fin-rashod-bot
+    runtime: python
+    buildCommand: ""
+    startCommand: python main.py
+    repo: https://github.com/eldarbal/fin-rashod-bot
+    branch: main
+    autoDeploy: true
