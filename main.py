@@ -1,9 +1,24 @@
 import os
+import logging
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+import datetime
+from collections import defaultdict
 
-# Сохраняем Google credentials из переменной в файл
+# Восстанавливаем credentials.json из переменной окружения
 if not os.path.exists("credentials.json"):
     with open("credentials.json", "w") as f:
         f.write(os.environ['GOOGLE_CREDENTIALS'])
+
+# Подключение к Google Sheets
+from oauth2client.service_account import ServiceAccountCredentials
+import gspread
+
+scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+creds = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
+client = gspread.authorize(creds)
+sheet = client.open("Finance Tracker").sheet1  # замените на вашу таблицу
+
+# Далее идёт остальной код бота (функции, handlers и main())
 
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
