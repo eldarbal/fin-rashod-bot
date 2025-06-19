@@ -115,7 +115,7 @@ def week_report(update, context):
 # --- Основная функция запуска бота ---
 def main():
     # Вставьте сюда токен вашего бота
-    TOKEN = 'ВАШ_ТОКЕН_БОТА'
+    TOKEN = '7926562743:AAGb86OAy_mFv7qgzmRdRqKHLIXrFx-cuIw'
 
     updater = Updater(TOKEN, use_context=True)
     dp = updater.dispatcher
