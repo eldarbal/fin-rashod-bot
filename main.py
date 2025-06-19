@@ -1,3 +1,10 @@
+import os
+
+# Сохраняем Google credentials из переменной в файл
+if not os.path.exists("credentials.json"):
+    with open("credentials.json", "w") as f:
+        f.write(os.environ['GOOGLE_CREDENTIALS'])
+
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import datetime
